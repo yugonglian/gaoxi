@@ -25,7 +25,7 @@
 			<groupId>com.gaoxi.service</groupId>
 			<artifactId>gaoxi-service</artifactId>
 			<scope>system</scope>
-			<systemPath>/Users/anyun/IdeaProjects/gaoxi/gaoxi-service/target/gaoxi-service-0.0.1-SNAPSHOT.jar</systemPath>
+			<systemPath>${project.parent.basedir}/gaoxi-service/target/gaoxi-service-0.0.1-SNAPSHOT.jar</systemPath>
 		</dependency>
 	</dependencies>
 
