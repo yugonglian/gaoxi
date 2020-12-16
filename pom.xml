@@ -29,6 +29,16 @@
 		<java.version>1.8</java.version>
 	</properties>
 
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.gaoxi.service</groupId>
+				<artifactId>gaoxi-service</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -66,20 +76,46 @@
 			<artifactId>spring-boot-starter-dubbo</artifactId>
 			<version>1.0.0</version>
 		</dependency>
-		<dependency>
-			<groupId>com.gaoxi.service</groupId>
-			<artifactId>gaoxi-service</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
 
 
 	</dependencies>
 
-	<build>
+    <build>
 		<plugins>
 			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
+				<groupId>org.codehaus.cargo</groupId>
+				<artifactId>cargo-maven2-plugin</artifactId>
+				<version>1.6.5</version>
+				<configuration>
+					<container>
+						<!-- 指明使用的tomcat服务器版本 -->
+						<containerId>tomcat8x</containerId>
+						<type>remote</type>
+					</container>
+					<configuration>
+						<type>runtime</type>
+						<cargo.remote.username>admin</cargo.remote.username>
+						<cargo.remote.password>jishimen2019</cargo.remote.password>
+					</configuration>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>deploy</phase>
+						<goals>
+							<goal>redeploy</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>3.1.0</version>
+				<configuration>
+					<delimiters>
+						<delimiter>@</delimiter>
+					</delimiters>
+					<useDefaultDelimiters>false</useDefaultDelimiters>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

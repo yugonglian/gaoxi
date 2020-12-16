@@ -21,7 +21,11 @@
 
 	<dependencies>
 
-	</dependencies>
+        <dependency>
+            <groupId>com.gaoxi.service</groupId>
+            <artifactId>gaoxi-service</artifactId>
+        </dependency>
+    </dependencies>
 
 
 
